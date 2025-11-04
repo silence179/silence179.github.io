@@ -87,3 +87,15 @@ if (tid == TID_ERROR)
 说明子线程调用了系统调用   
 ![图片](images/输出1.png)
 接下来要实现参数的分离.  
+
+
+
+
+
+
+
+```
+Thus, when the system call handler syscall_handler() gets control, the system call number is in the 32-bit word at the caller's stack pointer, the first argument is in the 32-bit word at the next higher address, and so on. The caller's stack pointer is accessible to syscall_handler() as the esp member of the struct intr_frame passed to it. (struct intr_frame is on the kernel stack.)
+```
+根据这段话,我们知道调用system call的时候会将系统调用号放在esp的低32位,而第一个参数放在了高32位上面.pintos要求我们对于传入的指针做判断,要求判断是否是用户空间内的指针,即高于PHYS_BASE还有是否是一个unmap的或者是一个空的.  
+我们要s
