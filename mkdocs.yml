@@ -3,4 +3,5 @@ docs_dir: docs
 nav:
   - index.md
   - pintos/pintos lab2 record.md 
+  - ns3的lsp问题.md
 theme: material
