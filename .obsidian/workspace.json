@@ -181,6 +181,9 @@
   "active": "06340313519f5c12",
   "lastOpenFiles": [
     "mkdocs.yml~",
+    "docs/stylesheets/extra.css",
+    "docs/stylesheets",
+    "docs/extra.css",
     "docs/pintos/pintos lab2 record.md",
     "docs/pintos/images/输出1.png",
     "docs/ns-3/ns3的lsp问题.md",
@@ -195,8 +198,6 @@
     "site/pintos/pintos lab2 record/index.html",
     "site/pintos/pintos lab2 record",
     "site/pintos",
-    "site/index.html",
-    "site/404.html",
     "site/assets/images/favicon.png",
     "pintos/pintos lab2 record.md",
     "README.md"

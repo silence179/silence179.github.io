@@ -7,3 +7,5 @@ nav:
   - ns3:
     - lsp: ns-3/ns3的lsp问题.md
 theme: material
+extra_css: 
+  - stylesheets/extra.css
