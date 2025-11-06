@@ -181,6 +181,7 @@
   "active": "06340313519f5c12",
   "lastOpenFiles": [
     "docs/stylesheets/extra.css~",
+    "mkdocs.yml~",
     "site/search/search_index.json",
     "site/search",
     "site/ns-3/ns3的lsp问题/index.html",
@@ -190,7 +191,6 @@
     "site/sitemap.xml.gz",
     "site/sitemap.xml",
     "site/404.html",
-    "site/stylesheets/extra.css",
     "docs/pintos/pintos lab2 record.md",
     "docs/pintos/images/输出1.png",
     "docs/ns-3/ns3的lsp问题.md",
