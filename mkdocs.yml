@@ -6,6 +6,8 @@ nav:
     - Lab2: pintos/pintos lab2 record.md 
   - ns3:
     - lsp: ns-3/ns3的lsp问题.md
-theme: material
+theme: 
+  name: 'material'
+  langeage: 'zh'
 extra_css: 
   - stylesheets/extra.css
