@@ -12,6 +12,7 @@ theme:
       toggle:
         icon: material/brightness-4
         name: 'Switch to light modeextra_css' 
+    primary: black
 nav:
   - Home: index.md
   - Pintos:
