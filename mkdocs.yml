@@ -1,23 +1,23 @@
 site_name: Silence's wiki
 docs_dir: docs
+theme:  
+  name: 'material'
+  langeage: 'zh'
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: 'Switch to dark mode'
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: 'Switch to light modeextra_css' 
 nav:
   - Home: index.md
   - Pintos:
     - Lab2: pintos/pintos lab2 record.md 
   - ns3:
     - lsp: ns-3/ns3的lsp问题.md
-theme: 
-  name: 'material'
-  langeage: 'zh'
-  Palette:
-    - scheme: default
-      toggle:
-        icon: material/brightness-7 
-        name: Switch to dark mode
+# extra_css:
+#     extra- stylesheets/extra.css
 
-  # Palette toggle for dark mode
-  - scheme: slate
-    toggle:
-      icon: material/brightness-4
-      name: Switch to light modeextra_css: 
-  - stylesheets/extra.css
