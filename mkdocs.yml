@@ -1,7 +1,9 @@
-site_name: Mywiki
+site_name: Silence's wiki
 docs_dir: docs
 nav:
-  - index.md
-  - pintos/pintos lab2 record.md 
-  - ns3的lsp问题.md
+  - Home: index.md
+  - Pintos:
+    - Lab2: pintos/pintos lab2 record.md 
+  - ns3:
+    - lsp: ns3的lsp问题.md
 theme: material
