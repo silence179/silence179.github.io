@@ -180,6 +180,7 @@
   },
   "active": "06340313519f5c12",
   "lastOpenFiles": [
+    "docs/stylesheets/extra.css~",
     "mkdocs.yml~",
     "docs/stylesheets/extra.css",
     "docs/stylesheets",
@@ -197,7 +198,6 @@
     "site/search",
     "site/pintos/pintos lab2 record/index.html",
     "site/pintos/pintos lab2 record",
-    "site/pintos",
     "site/assets/images/favicon.png",
     "pintos/pintos lab2 record.md",
     "README.md"
