@@ -6,66 +6,53 @@
 /*     background-color: var(--bg_color); */
 /*     color: var(--text_color); */
 /* } */
-/* 定义变量 */
-:root {
-  --bg-color: #0d1117;      /* 更舒适的深灰色 */
-  --text-color: #c9d1d9;    /* 柔和白色 */
-  --code-bg: #161b22;       /* 代码块背景 */
-  --border-color: #30363d;
-}
-
-/* 高优先级重置所有主要区域 */
-.md-main,
-.md-main__inner,
-.md-content,
-.md-sidebar,
-.md-nav,
-.md-typeset,
-article,
-.main-article {
+.md-header,
+.md-tabs,
+.md-header-nav,
+.md-header-nav__title,
+.md-header-nav__source,
+.md-tabs__list,
+.md-tabs__item,
+.md-tabs__link {
   background-color: var(--bg-color) !important;
   color: var(--text-color) !important;
+  border-color: var(--border-color) !important;
 }
 
-/* 覆盖代码块 */
-.md-typeset code,
-.md-typeset pre,
-.highlight,
-.highlighttable {
-  background-color: var(--code-bg) !important;
-  color: var(--text-color) !important;
-}
-
-/* 覆盖表格 */
-.md-typeset table:not([class]) {
-  background-color: var(--bg-color) !important;
-}
-.md-typeset table:not([class]) tr {
-  background-color: var(--bg-color) !important;
-  color: var(--text-color) !important;
-}
-.md-typeset table:not([class]) th {
-  background-color: #161b22 !important;
-  color: var(--text-color) !important;
-}
-
-/* 覆盖链接 */
-.md-typeset a {
-  color: #58a6ff !important;  /* GitHub风格的链接蓝 */
-}
-
-/* 覆盖侧边栏和导航 */
-.md-sidebar__scrollwrap,
-.md-nav__link,
+/* 移除阴影效果（Material主题特有） */
 .md-header,
 .md-tabs {
+  box-shadow: none !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* 下拉菜单和搜索框 */
+.md-search__form,
+.md-search__input,
+.md-search-result__meta,
+.md-search-result__article,
+.md-search-result__list,
+.md-typeset .md-search__icon {
   background-color: var(--bg-color) !important;
   color: var(--text-color) !important;
 }
 
-/* 覆盖引用块 */
-.md-typeset blockquote {
-  background-color: #161b22 !important;
-  border-color: var(--border-color) !important;
+/* 移动端菜单 */
+.md-nav__title,
+.md-nav__source {
+  background-color: var(--bg-color) !important;
   color: var(--text-color) !important;
+}
+
+/* 返回顶部按钮 */
+.md-top {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* 搜索高亮 */
+.md-search-result mark {
+  background-color: #161b22 !important;
+  color: #58a6ff !important;
 }
