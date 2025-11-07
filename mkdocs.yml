@@ -20,7 +20,7 @@ nav:
   - Pintos:
     - Lab2: pintos/pintos lab2 record.md 
   - ns3:
-    - lsp: ns-3/ns3的lsp问题.md
+    - lsp: ns-3/ns3的奇妙问题.md
 extra_css:
   - stylesheets/extra.css
 
