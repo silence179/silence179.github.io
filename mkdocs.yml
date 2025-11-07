@@ -1,5 +1,8 @@
 site_name: Silence's wiki
 docs_dir: docs
+markdown_extension:
+  - abbr
+  - admonition
 theme:  
   name: 'material'
   langeage: 'zh'
