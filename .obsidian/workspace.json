@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/index.md",
+                "file": "docs/前端/从0开始的博客搭建.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "从0开始的博客搭建"
             }
           }
         ],
@@ -180,6 +180,9 @@
   },
   "active": "06340313519f5c12",
   "lastOpenFiles": [
+    "docs/index.md",
+    "docs/前端/从0开始的博客搭建.md",
+    "docs/前端",
     "mkdocs.yml~",
     "docs/stylesheets/extra.css~",
     "site/search/search_index.json",
@@ -189,15 +192,12 @@
     "site/ns-3",
     "site/index.html",
     "site/sitemap.xml.gz",
-    "site/sitemap.xml",
-    "site/404.html",
     "docs/pintos/pintos lab2 record.md",
     "docs/pintos/images/输出1.png",
     "docs/ns-3/ns3的lsp问题.md",
     "docs/未命名.md",
     "images.md",
     "docs/pintos/images/粘贴的图像.png",
-    "docs/index.md",
     "site/assets/images/favicon.png",
     "pintos/pintos lab2 record.md",
     "README.md"
