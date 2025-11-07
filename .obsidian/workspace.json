@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/ns-3/从0开始的ns3.md",
+                "file": "docs/从0开始的ns3/chapter 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "从0开始的ns3"
+              "title": "chapter 1"
             }
           }
         ],
@@ -180,8 +180,8 @@
   },
   "active": "06340313519f5c12",
   "lastOpenFiles": [
-    "docs/ns-3/ns3的奇妙问题.md",
-    "docs/ns-3/从0开始的ns3.md",
+    "docs/从0开始的ns3/ns3的奇妙问题.md",
+    "docs/从0开始的ns3/chapter 1.md",
     "docs/前端/从0开始的博客搭建.md",
     "docs/stylesheets/extra.css~",
     "docs/index.md",
