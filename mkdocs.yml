@@ -5,6 +5,8 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.arithmatex:
+    generic: true
 theme:  
   name: 'material'
   langeage: 'zh'
