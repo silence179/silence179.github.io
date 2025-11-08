@@ -43,6 +43,8 @@ nav:
   - ns3:
     - ch01: 从0开始的ns3/chapter 1.md
     - 奇妙问题: 从0开始的ns3/ns3的奇妙问题.md
+  - 前端:
+    - 博客: 前端/从0开始的博客搭建.md
 
 extra_css:
   - stylesheets/extra.css

@@ -1,3 +1,4 @@
+## 存在问题 
 首先在lab1的基础上可能会出现一些问题,具体体现在 [问题出处](https://blog.csdn.net/ChloeWeever/article/details/144327611?spm=1001.2014.3001.5502)   
    
 可以选择包装一次`thread_yield`调用  
@@ -10,6 +11,8 @@ void thread_try_yield(void) {
 [解决方案出处](https://stackoverflow.com/questions/52472084/pintos-userprog-all-tests-fail-is-kernel-vaddr)   
 当然也可以选择重新开一个pintos (以下基于一个新的pintos源码)   
 [更好的pintos指导](https://pkuflyingpig.gitbook.io/pintos)   
+
+## 解决等待
 
 需要在usrprog的目录下去重新构建项目并且将pintos的loader 和 kernel都重新指向这个新的.整个项目基于pintos的文件系统,所以要新建一个filesys.dsk,以下是一个测试   
 ```bash
@@ -94,7 +97,7 @@ if (tid == TID_ERROR)
 
 
 
-```
+```text
 Thus, when the system call handler syscall_handler() gets control, the system call number is in the 32-bit word at the caller's stack pointer, the first argument is in the 32-bit word at the next higher address, and so on. The caller's stack pointer is accessible to syscall_handler() as the esp member of the struct intr_frame passed to it. (struct intr_frame is on the kernel stack.)
 ```
 根据这段话,我们知道调用system call的时候会将系统调用号放在esp的低32位,而第一个参数放在了高32位上面.pintos要求我们对于传入的指针做判断,要求判断是否是用户空间内的指针,即高于PHYS_BASE还有是否是一个unmap的或者是一个空的.这些实际上都在pintos相关的文件里面有实现,要include相关的文件.  
