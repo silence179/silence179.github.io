@@ -172,6 +172,7 @@
   },
   "active": "06340313519f5c12",
   "lastOpenFiles": [
+    "mkdocs.yml~",
     "docs/从0开始的ns3/chapter 1.md",
     "docs/从0开始的ns3/chapter 2.md",
     "docs/从0开始的ns3/ns3的奇妙问题.md",
@@ -179,7 +180,6 @@
     "docs/pintos/images/输出1.png",
     "docs/index.md",
     "docs/前端/从0开始的博客搭建.md",
-    "mkdocs.yml~",
     "docs/js/mathjax.js~",
     "docs/.js/mathjax.js",
     "docs/.js",
