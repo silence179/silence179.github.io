@@ -2,7 +2,7 @@
 	所有内容是基于[ns3的Tutorial](https://www.nsnam.org/docs/release/3.46/tutorial/html/index.html)的总结
 ## example开始的ns3
 在first.cc出现以下新名词  
-  
+- CommandLine
 - PointToPointHelper  
 - NetDeviceContainer  
 - InternetStackHelper  
@@ -15,21 +15,23 @@
 
 !!! Note
 	Helper的类都不是实例,而是一些属性,方法的集合.而Container是Helper所创建保存实际属性的的容器.  
-	对于log相关的放在chapter2中
+	对于log相关的放在chapter2中,CommandLine也是
 
-我们首先需要一个topo结构,最简单的是点对点的网络结构,所以使用点对点的Helper类,并且设置Device的属性和Channel属性.  
+我们首先需要一个topo结构,最简单的是点对点的网络结构,所以使用点对点的Helper类,并且设置Device的属性和Channel属性,而pointtopoint类中提供了修改属性的方法.  
 ```cpp
 	PointToPointHelper pointToPoint;
     pointToPoint.SetDeviceAttribute("DataRate", StringValue("5Mbps"));
     pointToPoint.SetChannelAttribute("Delay", StringValue("2ms"));
 ```
-然后用install方法,将nodes加载到整个结构中.  
+然后用install方法,会创建一个PointToPointNetDevice,将nodes加载到整个结构中.  
 对于每个节点(node),我们当然还需要加载它们的整个网络栈:
 ```cpp
 	InternetStackHelper stack;
     stack.Install(nodes);
 ```
-网络的通信还需要ip地址,而地址的分配关系也是我们要指定的属性之一.而这些我们要创建一个Helper来指定.通常情况下,地址的分配会按顺序一个一个分配,比如10.1.1.0,10.1.1.1.而且如果在复杂情况下如果分配了相同的ip地址,会导致发生fatal error,并且难以debug.
+网络的通信还需要ip地址,而地址的分配关系也是我们要指定的属性之一.而这些我们要创建一个Helper来指定.通常情况下,地址的分配会按顺序一个一个分配,比如10.1.1.0,10.1.1.1.
+!!! Note
+	如果在复杂情况下如果分配了相同的ip地址,会导致发生fatal error,并且难以debug.
 ```cpp
 	Ipv4AddressHelper address;
     address.SetBase("10.1.1.0", "255.255.255.0");
