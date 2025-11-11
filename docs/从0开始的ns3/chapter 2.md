@@ -78,7 +78,7 @@ $ ./ns3 run "scratch/myfirst
   --ns3::PointToPointChannel::Delay=2ms
   --ns3::UdpEchoClient::MaxPackets=2"
 ```
-这里没有通过调用Public函数,而是修改具体的类中的属性,不过如果不熟悉各种typeid,我们可以设置我们自己的变量在程序中.
+这里没有通过调用Public函数,而是修改具体的类中的属性,不过如果不熟悉各种typeid,我们可以设置我们自己的变量在程序中.这里的第一个参数是变量的表示名,第二个是帮助信息,第三个就是变量了.
 ```cpp
 uint32_t nPackets = 1;
 cmd.AddValue("nPackets", "Number of packets to echo", nPackets);
@@ -105,4 +105,10 @@ At time +3.00737s client received 1024 bytes from 10.1.1.2 port 9
 ```
 
 ## Use tracing
-待续
+这里主要是用一些内置的trace,还是通过enable的方式来启用trace.  
+同样的,我们需要创建helper类来创建对象.
+```cpp
+AsciiTraceHelper ascii;
+pointToPoint.EnableAsciiAll(ascii.CreateFileStream("myfirst.tr"));
+```
+这样会启用trace,所有的细节信息会被重定向到一个名为myfirst.tr的文件中,这里的默认路径是根目录.可以通过 --cwd参数来放到当前工作目录来.

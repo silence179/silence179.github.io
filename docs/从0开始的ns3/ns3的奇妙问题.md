@@ -7,4 +7,4 @@ find . -type f -name "compile_commands.json"
 ./cmake-cache/compile_commands.json
 ./compile_commands.json
 ```
-于是我将camke-cache的复制出来了,然后能读取到了
+于是我将camke-cache的复制出来了,然后lsp就work了.
