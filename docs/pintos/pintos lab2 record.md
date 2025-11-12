@@ -86,6 +86,7 @@ if (tid == TID_ERROR)
   }
 ```
 然后我们在thread_exit()中将信号量sema_up就完成了wait的逻辑.  
+这里信号的同步同样也是后面的system call里面的exec以及wait的内容.
 这个时候的执行结果是打印了system call!  
 说明子线程调用了系统调用   
 ![图片](images/输出1.png)
@@ -117,3 +118,5 @@ static void checkpointer(const void *vaddr){
 }
 ```
 于是可以开始实现其他一系列的system call相关代码了.
+halt很简单,原文写了直接调用shutdown_power_off()函数就可以了,
+exit只要将第一个参数传递到
