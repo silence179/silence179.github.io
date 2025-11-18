@@ -44,6 +44,8 @@ nav:
     - ch01: 从0开始的ns3/chapter 1.md
     - ch02: 从0开始的ns3/chapter 2.md
     - 奇妙问题: 从0开始的ns3/ns3的奇妙问题.md
+  - shell:
+    - perl: perl (shell编程).md
   - 前端:
     - 博客: 前端/从0开始的博客搭建.md
 
