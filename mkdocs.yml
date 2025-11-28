@@ -43,6 +43,7 @@ nav:
   - ns3:
     - ch01: 从0开始的ns3/chapter 1.md
     - ch02: 从0开始的ns3/chapter 2.md
+    - ch03: 从0开始的ns3/chapter 3.md
     - 奇妙问题: 从0开始的ns3/ns3的奇妙问题.md
   - shell:
     - perl: perl (shell编程).md

@@ -8,7 +8,8 @@
 - LOG_ALL — Log everything mentioned above (no associated macro).  
 !!! Note
 	高等级的Log层级是覆盖低等级的层级的  
-不仅仅可以在程序中修改参数,在命令行中修改环境变量:
+不仅仅可以在程序中修改参数,在命令行中修改环境变量:  
+这里用''包裹是为了避免|被解释成管道运算符
 ```bash
 $ export 'NS_LOG=UdpEchoClientApplication=level_all|prefix_func:
                UdpEchoServerApplication=level_all|prefix_func'
