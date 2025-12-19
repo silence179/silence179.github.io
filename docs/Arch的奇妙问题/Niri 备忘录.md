@@ -1,5 +1,6 @@
-在配置文件里面搜索中文快捷键,或者bind来找到自己的快捷键设置.  
-window-rule 里面设置各种窗口的启动设置.  
-在output上修改各个显示器的相对位置
-希望设置浮动窗口可以通过niri msg pick-window来得到app-id来设置
-prefer-no-csd是用于给窗口取消标题栏
+- 在配置文件里面搜索中文快捷键,或者bind来找到自己的快捷键设置.  
+- window-rule 里面设置各种窗口的启动设置.  
+- 在output上修改各个显示器的相对位置
+- 希望设置浮动窗口可以通过niri msg pick-window来得到app-id来设置
+- prefer-no-csd是用于给窗口取消标题栏
+- 神秘wayland-1-swww-daemon.sock多了一个. 导致脚本匹配不上,不知道为什么,如果脚本仍然匹配不上查看这一条.
