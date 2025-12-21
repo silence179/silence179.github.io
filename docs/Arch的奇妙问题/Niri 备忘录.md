@@ -5,5 +5,5 @@
 - prefer-no-csd是用于给窗口取消标题栏
 - 将layer-rule match namespace "swww-daemonoverview"并且将place-within-backup 设置为true就可以在overview的背景匹配上另一个守护进程的壁纸了
 -  matugen  [wiki页面](https://iniox.github.io/#matugen/configuration) pre_hook 和 post_hook的用法是在template后面直接跟就可以了.
-- 用了keyd来实现按键的映射改变,现在caps和escai交换了.这里用了systemct来实现开机自启动.
-- 
+- 用了keyd来实现按键的映射改变,现在caps和escai交换了.这里用了systemct enable --now来实现开机自启动.
+- 在niri中可以直接windows-rule来直接调节窗口透明度,就连之前搞了半天的obsidian都可以直接调节了,非常舒服.
