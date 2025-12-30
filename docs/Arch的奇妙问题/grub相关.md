@@ -1,2 +1,4 @@
 grub启动会读取/boot/grub/grub.cfg文件这个文件决定了所有的选项,是由grub-mkconfig自动生成的,读取/etc/default/grub的设置和/etc/grub.d/* 的所有脚本. 这里的.d文件是将整个cfg文件拆分成很多.d文件再由grub-mkconfig来读取g生成cfg. 
 这里minegrub主题是由两个主题拼凑出来的,先通过一个doublemenu来引导选择模拟我的世界最开始的主界面.然后选择之后,chosen会被设置,基于chosen被设置也就是被定义了,这个时候我们再次调用加载cfg,但是这次用if判断chosen来规避再次进入主界面,只有chosen没有被设置的时候我们才执行主界面的theme.这样就有两层theme,关键是chosen变量.
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+神秘快照系统,出大问题:
