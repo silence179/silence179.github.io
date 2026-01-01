@@ -38,6 +38,10 @@ theme:
       quote: octicons/quote-16
 nav:
   - Home: index.md
+  - Arch:
+    - niri备忘录: Arch的奇妙问题/Niri备忘录.md
+    - grub: Arch的奇妙问题/grub相关.md
+  - rust: rust.md
   - Pintos:
     - Lab2: pintos/pintos lab2 record.md 
   - ns3:
@@ -46,7 +50,7 @@ nav:
     - ch03: 从0开始的ns3/chapter 3.md
     - 奇妙问题: 从0开始的ns3/ns3的奇妙问题.md
   - shell:
-    - perl: perl (shell编程).md
+    - perl: 脚本编程/perl (shell编程).md
   - 前端:
     - 博客: 前端/从0开始的博客搭建.md
 
