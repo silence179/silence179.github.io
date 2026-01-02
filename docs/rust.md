@@ -101,7 +101,41 @@ impl<T> Point<T> {
 ```
 这里的`impl<T>`是说明要为一个泛型为T的结构体实现方法.
 ## rust 错误处理
-  
+panic!直接终止整个程序.可以通过
+```bash
+$ RUST_BACKTRACE=1 cargo run
+```
+查看栈的backtrace.错误的处理和一个内置的枚举关系很大:
+```rust
+enum Result<T, E> {
+    Ok(T),
+    Err(E),
+}
+```
+这里很多函数的返回值会返回这个枚举类型,这里我们可以对这个枚举进行match处理错误情况.
+这里也可以简写:
+```rust
+fn main() {
+    let f = File::open("hello.txt").unwrap();
+}
+```
+unwrap就相当与有err就直接panic.,也可以换成expect:
+```rust
+fn main() {
+    let f = File::open("hello.txt").expect("Failed to open hello.txt");
+}
+```
+这里错误信息会更明确.  
+不过更多时候只需要正确的处理错误就可以了,而不需要直接panic整个程序,所以我们将err return是一个比较好的方案,这里也有简写:
+```rust
+fn read_username_from_file() -> Result<String, io::Error> {
+    let mut f = File::open("hello.txt")?;
+    let mut s = String::new();
+    f.read_to_string(&mut s)?;
+    Ok(s)
+}
+```
+这里直接在函数调用后接?就相当于match到了err就返回err.
 ## rust共享接口trait
 在代码中可以声明一个summary块:
 ```rust
