@@ -30,6 +30,31 @@ fn value_in_cents(coin: Coin) -> u8 {
     }
 }
 ```
+default可以用`_`来匹配所有的其他枚举值.
+如果只需要一个特殊值的判断的话可以通过if let 指令来进行:
+```rust
+enum UsState {
+   Alabama,
+   Alaska,
+}
+
+enum Coin {
+   Penny,
+   Nickel,
+   Dime,
+   Quarter(UsState),
+}
+let coin = Coin::Penny;
+let mut count = 0;
+if let Coin::Quarter(state) = coin {
+    println!("State quarter from {:?}!", state);
+} else {
+    count += 1;
+}
+}
+```
+这里会检查coin是不是quarter,然后将这个coin的UsState的枚举值绑定到state上,通过这样来解析枚举值.  但是如果你写的不是变量名而是字面量,类似数字42这种,就会是判断是否精确匹配.
+
 - rust中的NULL被包装在一个Option< T >的一个枚举中.这被定义在标准库中.  
 ```rust
 fn main() {
