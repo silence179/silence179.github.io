@@ -1,4 +1,4 @@
-这里基本上是和c/c++不同的语法的汇集和复习.
+基本上是和c/c++不同的语法的汇集和复习.
 ## rust引用
 - 在rust中字符串字面量是对于特定位置的一个不可变引用.  
 ```rust
@@ -76,3 +76,37 @@ use std::io::{self, Write};
 ```  
 
 ## rust 泛型编程
+和c++差不太多,但是更智能一些.
+```rust
+struct Point<T> {
+    x: T,
+    y: T,
+}
+fn main() {
+    let integer = Point { x: 5, y: 10 };
+    let float = Point { x: 1.0, y: 4.0 };
+}
+```
+这里会自动推断,只要x,y类型一致,那么就可以通过编译.而且和c++一致,在编译的时候实际上会针对代码生成多个单态的定义代码.对于一个泛型的结构体,impl也需要声明泛型:
+```rust
+struct Point<T> {
+    x: T,
+    y: T,
+}
+impl<T> Point<T> {
+    fn x(&self) -> &T {
+        &self.x
+    }
+}
+```
+这里的`impl<T>`是说明要为一个泛型为T的结构体实现方法.
+## rust 错误处理
+  
+## rust共享接口trait
+在代码中可以声明一个summary块:
+```rust
+pub trait Summary {
+    fn summarize(&self) -> String;
+}
+```
+这相当与一个共享接口的集合.这个存在的意义就是为不同的struct提供类似的方法实现.  
