@@ -31,7 +31,7 @@ fn value_in_cents(coin: Coin) -> u8 {
 }
 ```
 default可以用`_`来匹配所有的其他枚举值.
-如果只需要一个特殊值的判断的话可以通过if let 指令来进行:
+如果只需要一个特殊值的判断的话可以通过if let 指令来进行.
 ```rust
 enum UsState {
    Alabama,
