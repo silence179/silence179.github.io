@@ -47,22 +47,20 @@ enum Coin {
 }
 let coin = Coin::Penny;
 let mut count = 0;
+
 if let Coin::Quarter(state) = coin {
     println!("State quarter from {:?}!", state);
 } else {
     count += 1;
 }
-}
 ```
 这里会检查coin是不是quarter,然后将这个coin的UsState的枚举值绑定到state上,通过这样来解析枚举值.  但是如果你写的不是变量名而是字面量,类似数字42这种,就会是判断是否精确匹配.
 
-- rust中的NULL被包装在一个Option< T >的一个枚举中.这被定义在标准库中.  
+- rust中的NULL被包装在一个`Option<T>`的一个枚举中.这被定义在标准库中.  
 ```rust
-fn main() {
-	enum Option<T> {
-	    Some(T),
-	    None,
-	}
+enum Option<T> {
+	Some(T),
+	None,
 }
 ```
 这意味这其他类型都可以不用空值判断.因为一定存在值,如果有没有初始化的变量rust编译器会提示无法通过.    
@@ -76,7 +74,7 @@ use std::io::{self, Write};
 ```  
 
 ## rust 泛型编程
-和c++差不太多,但是更智能一些.
+目前学的和c++差不太多,但是更智能一些.
 ```rust
 struct Point<T> {
     x: T,
@@ -99,7 +97,38 @@ impl<T> Point<T> {
     }
 }
 ```
-这里的`impl<T>`是说明要为一个泛型为T的结构体实现方法.
+这里的`impl<T>`是说明要为一个泛型为T的结构体实现方法.  
+泛型编程非常有意思,接下来提及迭代器的实现,比如我们要为一个LinkedList来实现for循环的迭代器,我们声明一个迭代器类型:
+```rust
+pub struct LinkedListIter<'a,T> {
+    current: &'a Option<Box<Node<T>>>,
+}
+```
+这里我们看到这个类型实际上是包含了一个引用的,那么当引用的东西失效了这个结构体理应失效,这才是合理的生命周期,我们用'a来声明这是一个包含了引用的结构体,它的生命周期不长于被引用的数据结构的生命周期.  
+'a在<>中是一个泛函参数,代表了传入的结构的生命周期,后续使用'a直接修饰是在限定某些引用或者结构的生命周期.
+```rust
+impl<'a,T> Iterator for LinkedListIter<'a,T> {
+    type Item = &'a T; //迭代器和引用的生命周期一致
+    fn next(&mut self) -> Option<Self::Item> {
+        self.current.as_ref().map(|node| {
+            let result = &node.value;       // 拿到数据的引用
+            self.current = &node.next;      // 移动到下一个节点的引用
+            result                         // 返回引用
+        })
+    }
+}
+```
+这里我们实现这个迭代器的trait,Item是这个迭代器应该产出的类型,每个对于Iterator的trait实现都需要声明Item是什么.Item返回的类型是引用,那么这个引用的迭代器要和这个引用的生命周期一致
+```rust
+impl<'a,T> IntoIterator for &'a LinkedList<T> { //为原来的struct实现一个如何转换成迭代器结构的函数
+    type Item = &'a T;
+    type IntoIter = LinkedListIter<'a,T>;
+    fn into_iter(self) -> LinkedListIter<'a,T> {
+        LinkedListIter {current: &self.head}
+    }
+}
+```
+这里迭代器是和LinkedList的生命周期一致的,因为这里'a是LinkedList的生命周期.  
 ## rust 错误处理
 panic!直接终止整个程序.可以通过
 ```bash

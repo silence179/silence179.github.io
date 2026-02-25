@@ -7,3 +7,4 @@
 -  matugen  [wiki页面](https://iniox.github.io/#matugen/configuration) pre_hook 和 post_hook的用法是在template后面直接跟就可以了.
 - 用了keyd来实现按键的映射改变,现在caps和escai交换了.这里用了systemct enable --now来实现开机自启动.
 - 在niri中可以直接windows-rule来直接调节窗口透明度,就连之前搞了半天的obsidian都可以直接调节了,非常舒服.
+- spawn-sh-at-startup "echo 'Xft.dpi: 144' | xrdb -merge" 这里是改变dpi,不改会导致输入法不适配大小,非常搞
