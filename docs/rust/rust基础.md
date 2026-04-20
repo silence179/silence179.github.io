@@ -3,7 +3,7 @@
 - 在rust中字符串字面量是对于特定位置的一个不可变引用.  
 ```rust
 fn main() {
-let s = "Hello, world!";
+	let s = "Hello, world!";
 }
 ```
 这里的s的类型是&str.  
@@ -180,3 +180,16 @@ impl Summary for XXX{
 ```
 这样来实现对于每个结构的同名函数.  
 如果在trait中直接实现一个函数,那么这是一个默认实现.如果某个struct想用这个共享接口,只需要用一个空的impl for就可以了,但是一定要有一个impl for ,来显示地告诉编译器.
+## rust 多线程编程
+### 共享内存式
+对于一个多进程处理的数据结构,多进程都需要获得它的使用权,我们需要Arc来包装,这会产生一个引用计数,用Arc::clone()可以处理一个被Arc::new泛型包装的数据结构,这会使得引用计数加一,并且获得一个该数据结构的所有权.  
+对于多进程,我们需要创建thread,利用thread::spawn,传递一个函数闭包,可以处理共享的内存.  
+但是对于共享的内存很显然需要锁,如果只读可以用Arc包装一个数据结构,但是有写的需求应该再用Mutex或者别的锁来包装这个数据结构,在用数据结构时获取锁`.lock()`方法,而且不需要释放锁因为RAII思想在rust的实现.
+### channel式
+可以在主线程中定义管道
+```rust
+    let (task_tx, task_rx) = crossbeam_channel::unbounded::<(usize, T)>();//这里T,U都是该父函数接受的泛型
+    let (res_tx, res_rx) = crossbeam_channel::unbounded::<(usize, U)>();
+```
+对于管道也是一个可以被clone的并且可以被多进程获得的一个数据结构,可以让主线程拿到task的输入端,res的输出端,而子线程拿到task的输出端res的输入端.  
+由于当主线程drop掉task的输入端时,那么task channel自动被释放掉,让子线程退出,而子线程全部退出之后,task的输入端被全部释放了,那么主线程就可以退出关于res输出端的for循环.  
